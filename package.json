@@ -1,0 +1,19 @@
+{
+  "name": "neels",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.1",
+    "gsap": "^3.12.5",
+    "music-metadata": "^10.6.0",
+    "music-metadata-browser": "^2.5.11",
+    "sortablejs": "^1.15.4"
+  }
+}

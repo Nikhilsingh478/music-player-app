@@ -1,0 +1,200 @@
+/* Add the import for the new font */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gradient-background {
+    background: linear-gradient(219deg, #d9fe29, #8b6dff, #4babe3, #538e2a, #75b0ca);
+    background-size: 300% 300%;
+    animation: gradient-animation 30s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.left-section, .right-section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.album-art {
+    width: 100%;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.music-loader {
+    flex: 1;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.music-loader:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #ff5733;
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    flex: 1;
+    margin: 5px;
+    max-width: 80px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.controls button:hover {
+    background-color: #666;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.controls input[type="range"] {
+    width: 100px;
+    margin: 5px;
+}
+
+.upload-button {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.upload-label {
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+}
+
+.upload-button:hover {
+    background-color: #666;
+    transform: scale(1.05);
+}
+
+.right-section {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.playlist-header {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.playlist {
+    height: 300px; /* Limit height to enable scrolling */
+    overflow-y: auto; /* Add vertical scrollbar */
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.playlist::-webkit-scrollbar {
+    width: 8px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: #ff5733;
+    border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb:hover {
+    background: #ff4500;
+}
+
+.playlist div {
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Add border for clarity */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: 100%; /* Occupy full mobile screen */
+    }
+
+    .album-art {
+        height: 200px;
+    }
+}
