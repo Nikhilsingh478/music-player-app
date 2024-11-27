@@ -398,3 +398,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadPlaylists();
 });
+
+
+// scricpt for loader 
+var loader = document.querySelector("#loader")
+setTimeout(() => {
+    loader.style.top = "-100%";
+}, 6000);
