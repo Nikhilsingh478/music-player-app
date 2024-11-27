@@ -263,7 +263,6 @@ body {
     background-image: url("./Blue\ Gray\ Simple\ Gradient\ Mobile\ Phone\ Wallpaper\ Background\ Wallpaper\ Image\ For\ Free\ Download\ -\ Pngtree.jpeg");
     background-position: center;
     -webkit-background-clip: text;
-    /* color: black; */
     position: absolute;
     opacity: 0;
     animation: load 1.5s linear;
