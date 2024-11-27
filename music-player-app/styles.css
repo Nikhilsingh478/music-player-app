@@ -1,4 +1,3 @@
-/* Add the import for the new font */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 body {
@@ -49,13 +48,23 @@ body {
 
 .album-art {
     width: 100%;
-    height: 300px;
+    height: 350px; /* Increased height */
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     margin-bottom: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#visualizer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
     border-radius: 10px;
 }
 
@@ -116,7 +125,7 @@ body {
 }
 
 .controls input[type="range"] {
-    width: 100px;
+    width: 150px; /* Increased width */
     margin: 5px;
 }
 
@@ -149,9 +158,26 @@ body {
     border-left: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.playlist-headers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
 .playlist-header {
     font-size: 18px;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.playlist-header button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff5733;
+    margin-left: 10px;
 }
 
 .playlist {
@@ -160,6 +186,11 @@ body {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 10px;
+    display: none; /* Hide by default */
+}
+
+.playlist.active {
+    display: block; /* Display active playlist */
 }
 
 .playlist::-webkit-scrollbar {
@@ -180,11 +211,36 @@ body {
     background: #ff4500;
 }
 
-.playlist div {
+.playlist .song {
     margin-bottom: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3); /* Add border for clarity */
     border-radius: 5px;
     padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlist .song .delete-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff5733;
+}
+
+.background-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.background-controls .icon-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 10px;
 }
 
 @media (max-width: 768px) {
@@ -195,6 +251,12 @@ body {
     }
 
     .album-art {
-        height: 200px;
+        height: 250px; /* Increased height */
+    }
+
+    #visualizer {
+        width: 100%;
+        height: 100%;
     }
 }
+
