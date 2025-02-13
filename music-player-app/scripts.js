@@ -358,23 +358,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     }
 
-    // Audio Visualizer
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     const analyser = audioCtx.createAnalyser();
     const source = audioCtx.createMediaElementSource(audio);
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
     analyser.fftSize = 256;
+
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
-
+    
     const canvasCtx = visualizer.getContext('2d');
 
     function drawVisualizer() {
         requestAnimationFrame(drawVisualizer);
 
         analyser.getByteFrequencyData(dataArray);
-
         canvasCtx.clearRect(0, 0, visualizer.width, visualizer.height);
 
         const barWidth = (visualizer.width / bufferLength) * 2.5;
@@ -383,7 +382,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i];
-
             const r = barHeight + (25 * (i / bufferLength));
             const g = 255 * (i / bufferLength);
             const b = 50;
@@ -402,10 +400,13 @@ document.addEventListener('DOMContentLoaded', () => {
         drawVisualizer();
     });
 
+    function loadPlaylists() {
+        console.log('Loading playlists...');
+        // Implement playlist loading logic here
+    }
+
     loadPlaylists();
 });
-
-
 // scricpt for loader 
 var loader = document.querySelector("#loader")
 setTimeout(() => {
