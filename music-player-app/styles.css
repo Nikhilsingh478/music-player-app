@@ -316,3 +316,28 @@ body {
         font-size: 4vh;
     }
 }
+
+.rotating {
+    width: 25px;
+    height: 25px;
+    animation: rotate 2s linear infinite;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.songBlock{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    opacity: 0.9;
+}

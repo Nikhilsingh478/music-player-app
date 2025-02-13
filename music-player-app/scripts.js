@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const deleteBackgroundIcon = document.getElementById('delete-background-icon');
     const musicLoader = document.getElementById('music-loader');
 
+    document.getElementById('playlist-1').classList.add('active');
+
     let audio = new Audio();
     audio.volume = 0.4; // Set default volume to 40%
     let isPlaying = false;
@@ -79,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
         objectStore.add(song);
     }
 
-    // Update playlist display
     function updatePlaylist(playlistId) {
         const playlist = playlistId === 1 ? playlist1 : playlist2;
         playlist.innerHTML = '';
@@ -87,15 +88,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const songElement = document.createElement('div');
             songElement.className = 'song';
             songElement.innerHTML = `
-                <span>${song.name}</span>
+                <span class="songBlock">${isPlaying && currentSongIndex === index ? '<img src="vinyl.png" class="rotating">' : ''} ${song.name}</span>
                 <button class="delete-button" data-index="${index}">🗑️</button>
             `;
             songElement.draggable = true; // Make it draggable
             playlist.appendChild(songElement);
         });
-
+    
         document.getElementById(`track-count-${playlistId}`).textContent = songs[playlistId].length;
-
+    
         // Add event listeners for delete buttons
         playlist.querySelectorAll('.delete-button').forEach(button => {
             button.addEventListener('click', (e) => {
@@ -103,11 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 deleteSong(playlistId, songIndex);
             });
         });
-
+    
         console.log(`Playlist ${playlistId} updated:`, songs[playlistId]);
     }
+    
+    
 
-    // Switch between playlists
     playlistHeaders.forEach(header => {
         header.addEventListener('click', () => {
             const playlistId = Number(header.getAttribute('data-playlist'));
@@ -119,6 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
     // Delete song
     function deleteSong(playlistId, index) {
         songs[playlistId].splice(index, 1);
@@ -253,18 +256,21 @@ document.addEventListener('DOMContentLoaded', () => {
             audio.pause();
             isPlaying = false;
         } else {
-            if (songs[currentPlaylist].length > 0) {
-                if (audio.src === "") {
-                    playSong(currentSongIndex);
-                } else {
-                    audio.play();
-                }
-                isPlaying = true;
-            } else {
-                console.warn('No songs to play');
-            }
+            audio.play();
+            isPlaying = true;
+            // Ensure currentSongIndex is set correctly
+            updatePlaylist(currentPlaylist);
         }
         gsap.to(playButton, { scale: 1.2, duration: 0.2, yoyo: true, repeat: 1 });
+    });
+    audio.addEventListener('playing', () => {
+        isPlaying = true;
+        updatePlaylist(currentPlaylist);
+    });
+    
+    audio.addEventListener('pause', () => {
+        isPlaying = false;
+        updatePlaylist(currentPlaylist);
     });
 
     prevButton.addEventListener('click', () => {
