@@ -8,7 +8,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto; /* Changed from hidden to auto */
 }
 
 .gradient-background {
@@ -309,8 +309,12 @@ body {
     .container {
         flex-direction: column;
         width: 100%;
+<<<<<<< HEAD
         height: 100%;
         /* Occupy full mobile screen */
+=======
+        height: auto; /* Changed to auto */
+>>>>>>> 050d841c610f8fa6c2a81bbb0d93d008f2865461
     }
 
     .album-art {
