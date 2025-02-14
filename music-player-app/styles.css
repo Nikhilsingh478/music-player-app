@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.gradient-background {
+    background: linear-gradient(219deg, #d9fe29, #8b6dff, #4babe3, #538e2a, #75b0ca);
+    background-size: 300% 300%;
+    animation: gradient-animation 30s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.left-section,
+.right-section {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.album-art {
+    width: 100%;
+    height: 350px;
+    /* Increased height */
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#visualizer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    border-radius: 10px;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.music-loader {
+    flex: 1;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.music-loader:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background-color: #ff5733;
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    flex: 1;
+    margin: 5px;
+    max-width: 80px;
+    transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.controls button:hover {
+    background-color: #666;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.controls input[type="range"] {
+    width: 150px;
+    /* Increased width */
+    margin: 5px;
+}
+
+.upload-button {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.upload-label {
+    margin: 10px 0;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+}
+
+.upload-button:hover {
+    background-color: #666;
+    transform: scale(1.05);
+}
+
+.right-section {
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.playlist-headers {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.playlist-header {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.playlist-header button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff5733;
+    margin-left: 10px;
+}
+
+.playlist {
+    height: 300px;
+    /* Limit height to enable scrolling */
+    overflow-y: auto;
+    /* Add vertical scrollbar */
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    /* Hide by default */
+}
+
+.playlist.active {
+    display: block;
+    /* Display active playlist */
+}
+
+.playlist::-webkit-scrollbar {
+    width: 8px;
+}
+
+.playlist::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb {
+    background: #ff5733;
+    border-radius: 10px;
+}
+
+.playlist::-webkit-scrollbar-thumb:hover {
+    background: #ff4500;
+}
+
+.playlist .song {
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Add border for clarity */
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.playlist .song .delete-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ff5733;
+}
+
+.background-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.background-controls .icon-button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+/* css for loader */
+#loader {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader h1 {
+    color: transparent;
+    font-size: 4vw;
+    background-image: url("./Blue\ Gray\ Simple\ Gradient\ Mobile\ Phone\ Wallpaper\ Background\ Wallpaper\ Image\ For\ Free\ Download\ -\ Pngtree.jpeg");
+    background-position: center;
+    -webkit-background-clip: text;
+    position: absolute;
+    opacity: 0;
+    animation: load 1.5s linear;
+    animation-delay: 1s;
+}
+
+#loader h1:nth-child(2) {
+    animation-delay: 2.5s;
+}
+
+#loader h1:nth-child(3) {
+    animation-delay: 4s;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        /* Occupy full mobile screen */
+    }
+
+    .album-art {
+        height: 250px;
+        /* Increased height */
+    }
+
+    #visualizer {
+        width: 100%;
+        height: 100%;
+    }
+
+    #loader h1 {
+        font-size: 4vh;
+    }
+}
+
+.rotating {
+    width: 25px;
+    height: 25px;
+    animation: rotate 2s linear infinite;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.songBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    opacity: 0.9;
+}
