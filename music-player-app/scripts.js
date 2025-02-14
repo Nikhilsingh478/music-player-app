@@ -261,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isPlaying = true;
             // Ensure currentSongIndex is set correctly
             updatePlaylist(currentPlaylist);
+            drawVisualizer();
         }
         gsap.to(playButton, { scale: 1.2, duration: 0.2, yoyo: true, repeat: 1 });
     });
