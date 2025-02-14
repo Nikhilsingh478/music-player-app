@@ -21,9 +21,11 @@ body {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -40,7 +42,8 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.left-section, .right-section {
+.left-section,
+.right-section {
     flex: 1;
     padding: 20px;
     box-sizing: border-box;
@@ -48,7 +51,8 @@ body {
 
 .album-art {
     width: 100%;
-    height: 350px; /* Increased height */
+    height: 350px;
+    /* Increased height */
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
@@ -125,7 +129,8 @@ body {
 }
 
 .controls input[type="range"] {
-    width: 150px; /* Increased width */
+    width: 150px;
+    /* Increased width */
     margin: 5px;
 }
 
@@ -181,16 +186,20 @@ body {
 }
 
 .playlist {
-    height: 300px; /* Limit height to enable scrolling */
-    overflow-y: auto; /* Add vertical scrollbar */
+    height: 300px;
+    /* Limit height to enable scrolling */
+    overflow-y: auto;
+    /* Add vertical scrollbar */
     background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 10px;
-    display: none; /* Hide by default */
+    display: none;
+    /* Hide by default */
 }
 
 .playlist.active {
-    display: block; /* Display active playlist */
+    display: block;
+    /* Display active playlist */
 }
 
 .playlist::-webkit-scrollbar {
@@ -213,7 +222,8 @@ body {
 
 .playlist .song {
     margin-bottom: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3); /* Add border for clarity */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Add border for clarity */
     border-radius: 5px;
     padding: 5px;
     display: flex;
@@ -243,7 +253,7 @@ body {
     margin-left: 10px;
 }
 
-/* css for loader  */
+/* css for loader */
 #loader {
     height: 100%;
     width: 100%;
@@ -267,7 +277,6 @@ body {
     opacity: 0;
     animation: load 1.5s linear;
     animation-delay: 1s;
-
 }
 
 #loader h1:nth-child(2) {
@@ -300,11 +309,13 @@ body {
     .container {
         flex-direction: column;
         width: 100%;
-        height: 100%; /* Occupy full mobile screen */
+        height: 100%;
+        /* Occupy full mobile screen */
     }
 
     .album-art {
-        height: 250px; /* Increased height */
+        height: 250px;
+        /* Increased height */
     }
 
     #visualizer {
@@ -312,7 +323,7 @@ body {
         height: 100%;
     }
 
-    #loader h1{
+    #loader h1 {
         font-size: 4vh;
     }
 }
@@ -329,12 +340,13 @@ body {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
 }
 
-.songBlock{
+.songBlock {
     display: flex;
     justify-content: center;
     align-items: center;
